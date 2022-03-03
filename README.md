@@ -1,83 +1,46 @@
-# LABORATORIO 01 (Simulacro)
+# LABORATORIO 01 
 
 ## Descripción General
-El siguiente laboratorio consiste en una serie de ejercicios para practicar el desarrollo de programación en **sintaxis de Python**, además de evaluación de conceptos vistos en clases anteriores.
-El objetivo de este laboratorio está en el uso de la **condicional IF**, **creación de funciones**, recuerde que en cada función que desarrollen agregar los **comentarios** (nombre, parámetros entrada, salida y restricciones), además, se reforzará el uso de los **inputs** para el manejo de menú.
-Finalizado el laboratorio subir el archivo con el nombre de **Laboratorio01.py**, la entrega cierra a las **3pm del 24 de febrero del 2022** y será a través del Github Classroom
+- El siguiente laboratorio consiste en una serie de ejercicios para el desarrollo de programación en **sintaxis de Python**, además de evaluación de conceptos vistos en clases anteriores.
+- El objetivo de este laboratorio está en el uso de la **condicional IF**, **creación de funciones**, recuerde que en cada función que desarrollen agregar los **comentarios** (nombre, parámetros entrada, salida y restricciones).
+- Finalizado el laboratorio subir el archivo con el nombre de **Laboratorio01.py**, la entrega cierra a las **3pm del 3 de marzo del 2022** y será a través del Github Classroom
 
-## Ejercicio 1. Valor 7 puntos.
-Escriba una función llamada **division(dividendo, divisor) **
-Sus parámetros de entrada deben ser:
--	Tipo Entero.
--	No negativos
--	De tomar en cuenta de que, si se divide entre cero, debe mostrar ese mensaje de que no es permitido
--	El divisor no debe ser mayor que el dividendo
 
-El resultado debe ser la división entre el dividendo y el divisor
+
+## calcularRenta(monto)
+Implemente una función que ayude a calcular el valor a tributar por concepto del **impuesto de renta sobre el salario**. En la imagen adjunta viene el rango de salarios para aplicar el porcentaje correcto de los impuestos
+
+Ilustración 1 Impuesto de renta para asalariados
+![image](https://user-images.githubusercontent.com/1167750/156645626-d394119c-ec54-4368-8df4-0d4a09d2b186.png)
+Fuente: https://www.hacienda.go.cr/contenido/14448-ejemplos-calculos-impuesto-sobre-la-renta
+
+Cómo se calcula:
+
+-	Si el salario es de 700,000 mensuales, no pago impuesto de renta, ¿por qué?, según la tabla estoy exento ya que este salario está por debajo de los 817,000 colones
+
+-	Si mi salario es de un 1,000,000 de colones, entonces este ingreso está dentro del rango del 817,000 y 1,226,000 entonces el exente de este se le aplica un 10%, es decir: (1,000,000 – 817,000) * 10% = 18,300
+
+-	Ahora, si mi salario es de 2,000,000, aplicaría el 15%, entonces:
+  Menor a 817,000 no pago
+  (1,226,000 – 817,000) * 10% = 40,900
+  (2,000,000 – 1,226,000) * 15% = 116,100
+  Entonces el impuesto de renta que tengo que pagar por un salario de 2,000,000 de colones es 157,000, que es el resultado de la suma 40,900 + 116,100
 
 ``` python
->>> division(10, 2)
-5
->>> division(0, 2)
+>>> calcularRenta(700000)
 0
->>> division(10, 10)
-1
->>> division(10, 15)
-“Error: El divisor es mayor que el dividendo”
->>> division(10, 0)
-“Error: La división entre CERO no es permitido”
->>> division(10, -5)
-“Error: Uno de los parámetros es negativo”
+>>> calcularRenta(1000000)
+18300
+>>> calcularRenta(2000000)
+157000
+
 ``` 
 
-## Ejercicio 2. Valor 3 puntos.
-Escriba una función llamada **divisionVersion2()** 
-Sus parámetros de entrada deben ser:
--	El dividendo y divisor será haciendo uso **INPUT**
--	Tipo Entero.
--	No negativos
--	De tomar en cuenta de que, si se divide entre cero, debe mostrar ese mensaje de que no es permitido
--	El divisor no debe ser mayor que el dividendo
-
+## contadorDigitos(num, digito)
+Implemente una función llamada contadorDigitos(num, digito) donde se espera que la salida retorne el número de veces que el dígito aparece en el número. Ejemplo
 ``` python
->>> división() #0, 2
-5
->>> division() #0, 2
-0
->>> division() #10, 10
-1
->>> division() #10, 15
-“Error: El divisor es mayor que el dividendo”
->>> division() #10, 0
-“Error: La división entre CERO no es permitido”
->>> division() #10, -5
-“Error: Uno de los parámetros es negativo”
-``` 
-
-## Ejercicio 3. Valor 10 puntos.
-Escriba una función llamada **calculoIVA(tipoServicio, monto)**
-Sus parámetros de entrada deben ser:
--	El valor de tipoServicio puede ser 1, 2 o 3, si es diferente a estos valores enteros debe mostrar su mensaje de error
--	Ambos parámetros deben ser tipo Entero.
--	Además, No negativos
--	Si el valor de tipoServicio es:
-  -	1, se calcula el impuesto con 13%
-  - 2, se calcula el impuesto con 2%
-  - 3, se calcula el impuesto con 6%
-
-El resultado debe ser el monto más el impuesto de IVA calculado
-
-``` python
->>> calculoIVA(1, 1000)
-1130
->>> calculoIVA(2, 1000)
-1020
->>> calculoIVA(3, 1000)
-1060
->>> calculoIVA(5, 1000)
-“Error: El valor de tipoServicio debe ser 1, 2 o 3”
->>> calculoIVA(1, 1000.5)
-“Error: Un parámetro no es de tipo Entero”
->>> calculoIVA(1, -1000)
-“Error: Uno de los parámetros es negativo”
+>>> contadorDigitos(102039480, 0)
+3
+>>> contadorDigitos(132033483, 3)
+4
 ``` 
